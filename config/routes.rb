@@ -1,10 +1,13 @@
 CookbookApp::Application.routes.draw do
 
-  root to: "home#home"
+
+  get '/login', to: "sessions#new"
+  resources :sessions, only: [:new, :create, :destroy]
   resources :ingredients
   resources :recipes
+  resources :users
 
-
+  root to: "home#home"
 
 
   # The priority is based upon order of creation:
